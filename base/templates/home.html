@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<table class="table mt-5">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">title</th>
+      <!-- <th scope="col">desc</th> -->
+      <th scope="col">Action</th>
+      <th scope="col">Action</th>
+      <th scope="col">Action</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+        <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.title}}</td>
+            <!-- <td>{{i.desc|truncatewords:10}}</td> -->
+            <td><a href="{% url 'details' i.id %}" class="btn btn-info">DETAILS</a></td>
+            <td><a href="{% url 'update' i.id %}" class="btn btn-primary">EDIT</a></td>            
+            <td><a href="{% url 'completed' i.id %}" class="btn btn-warning">Completed</a></td>
+            <td><a href="{% url 'confirm_del' i.id %}" class="btn btn-danger">DELETE</a></td>
+            
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

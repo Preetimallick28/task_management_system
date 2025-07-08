@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h2>List of Completed Task</h2>
+<table class="table mt-5">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">title</th>
+      <th scope="col">desc</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in complete_task %}
+        <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.title}}</td>
+            <td>{{i.desc}}</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
+

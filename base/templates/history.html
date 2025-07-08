@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h2>List of Deleted Task</h2>
+<a class="btn btn-primary" href="{% url 'restore_all' %}" >Restore All</a>
+<a class="btn btn-danger" href="" >Clear All</a>
+<table class="table mt-5">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">title</th>
+      <th scope="col">desc</th>
+      <th scope="col">Action</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in historydata %}
+        <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.title}}</td>
+            <td>{{i.desc}}</td>
+            <td><a href="{% url 'restore_task' i.id %}" class="btn btn-info">Restore task</a></td>
+            <td><a href="{% url 'delete_task' i.id %}" class="btn btn-primary">delete task</a></td>  
+            
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
+
+<!-- 5 templates 
+1.home.html - 5 flight names
+flight names - one btn - details [flight names will fetch from admin panel]
+once click on flight , display detail of one flight 5-4 fligth name , 
+
+2nd template - click on indigo 1 flight detail display btn , it show flight details , in this book btn  -->
+<!-- navbar - bookings,about,support,profile
+
+3rd template - details of particular flight - book btn
+
+4th template - booking model , add passenger details
+
+5th template - booking details - name , phonr , email , [django views read operation] [edit and delete btn]
+
+models names -  -->
